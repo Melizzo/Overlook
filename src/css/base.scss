@@ -1,6 +1,52 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+$primary-background: yellow;
 
-body {
+$primary-font-family: 'Barlow Condensed', sans-serif;
+
+* {
+  font-family: $primary-font-family;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  height: 10%;
+  justify-content: center;
+}
+
+header h1 {
+  padding-top: 5px;
+}
+
+main {
+  height: 60%;
   background-color: $primary-background;
+  display: flex;
+  justify-content: center;
+}
+
+.main-photo {
+  padding-top: 10px;
+  height: 90%;
+  width: 55%;
+}
+
+footer {
+  background-color: grey;
+  display: flex;
+  height: 30%;
+}
+
+.user-login {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.manager-login {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }

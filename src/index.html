@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Webpack Starter Kit</title>
+    <meta charset='UTF-8'>
+    <title>Overlook Hotel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Webpack Starter Kit</h1>
-
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
+    <header>
+      <h1>Overlook Hotel</h1>
+    </header>
+    <main>
+      <section class="main-photo">
+        <img src="./images/hotel-main.jpg" alt="hotel building" height="700px" width="700px">
+      </section>
+    </main>
+    <footer>
+      <section class="user-login">
+        <input type="text" required>Customer Login<input>
+        <input type="text" required>Password<input>
+        <input type="submit" value="Submit">
+      </section>
+      <section class="manager-login">
+        <input type="text" required>Manager Login<input>
+        <input type="text" required>Password<input>
+        <input type="submit" value="Submit">
+      </section>
+    </footer>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
