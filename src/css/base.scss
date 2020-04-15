@@ -1,52 +1,62 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: yellow;
+@import 'styles';
 
-$primary-font-family: 'Barlow Condensed', sans-serif;
 
-* {
-  font-family: $primary-font-family;
-  height: 100%;
+
+// $primary-background: rgb(135, 121, 121);
+// $primary-font-family: 'Barlow Condensed', sans-serif;
+
+// @mixin flex-container($justify-content) {
+//   display: flex;
+//   justify-content: $justify-content;
+// }
+
+// @mixin height-and-width($height, $width){
+//   height: $height;
+//   width: $width;
+// }
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: $primary-font-family;
+  @include height-and-width(100%, 100% )
+}
+
+.welcome-page {
+  background-position: center;
 }
 
 header {
-  display: flex;
+  @include flex-container(center);
   height: 10%;
-  justify-content: center;
 }
 
-header h1 {
-  padding-top: 5px;
+header, h1 {
+  display: contents;
+
 }
 
 main {
-  height: 60%;
+  @include flex-container(center);
+
   background-color: $primary-background;
-  display: flex;
-  justify-content: center;
 }
 
-.main-photo {
-  padding-top: 10px;
-  height: 90%;
-  width: 55%;
+.login-in-area {
+  @include flex-container(row);
+  @include height-and-width(40%, 40%);
+  z-index: 100;
+} 
+
+input {
+  @include height-and-width(10%, 30%);
+  display: inline inline-block;
 }
 
-footer {
-  background-color: grey;
-  display: flex;
-  height: 30%;
-}
-
-.user-login {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-}
-
-.manager-login {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
+// User login Page
+.user-login-page {
+  display: none;
 }
