@@ -5,13 +5,14 @@ class User {
         // this.myBookings = this.findMyBookings(user, bookingsData)
     }
 
-    // findMyBookings() {
-    // if(user.id === bookingsData.id)
-    //  return that booking object into an array
-    // filter
-    // filter through bookingsAPI & find all matching
-    // bookings for this user.
-    // }
+    findMyBookings(user, bookingsData) {
+        console.log('bookingsData', bookingsData)
+        const UserBookings = []
+        // const findData = bookingsData.filter(element => {
+        //     console.log('element', element)
+        //     element.userID
+        // })
+    }
 }
 
 export default User;

@@ -127,6 +127,5 @@ function reAssignRooms(apiRooms) {
       manager = new Manager(newPerson)
     }
     user = new User(newPerson, bookings)
-    // pass in bookings array to newUser
-
+    // user.findMyBookings(newPerson, bookings);
   }
