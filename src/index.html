@@ -2,28 +2,27 @@
 <html lang="en-US">
 <head>
   <meta charset='UTF-8'>
-    <title>Overlook Hotel</title>
+    <title>Minimalist Hotel</title>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <header>
-      <h1>Overlook Hotel</h1>
+      <h1>Minimalist Hotel</h1>
     </header>
     <main>
       <section class="welcome-page">
-        <section class="main-photo">
-          <img src="./images/hotel-main.jpg" alt="hotel building">
-        </section>
+        <section class="main-photo"></section>
         <section class="login-in-area">
-          <input aria-label="enter-username" type="text" required>Login</input>
-          <input aria-label="enter-password" type="text" required>Password</input>
-          <input aria-label="submit-username-and-password" type="submit" value="Submit"></input>
+          <div id="login-in-error" class="login-error-in-message"></div>
+          <input id="login-username-input" class="username-input" aria-label="enter-username" type="text" required>Login</input>
+          <input id="login-password-input" class="password-input" aria-label="enter-password" type="text" required>Password</input>
+          <input id="login-submit-button" aria-label="submit-username-and-password" type="submit" value="Submit"></input>
         </section>
       </section>
       <section class="user-login-page">
         <section class="main-photo">
-          <img src="./images/user-login-picture.jpg" alt="pillows">
+          <!-- <img src="./images/user-login-page.jpg" alt="pillows"> -->
         </section>
       </section>
     </main>

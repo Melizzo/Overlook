@@ -1,20 +1,5 @@
 @import 'styles';
 
-
-
-// $primary-background: rgb(135, 121, 121);
-// $primary-font-family: 'Barlow Condensed', sans-serif;
-
-// @mixin flex-container($justify-content) {
-//   display: flex;
-//   justify-content: $justify-content;
-// }
-
-// @mixin height-and-width($height, $width){
-//   height: $height;
-//   width: $width;
-// }
-
 *,
 *:after,
 *:before {
@@ -40,9 +25,14 @@ header, h1 {
 }
 
 main {
-  @include flex-container(center);
-
-  background-color: $primary-background;
+  background-image: url('../images/hotel-main.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
 }
 
 .login-in-area {
@@ -50,6 +40,10 @@ main {
   @include height-and-width(40%, 40%);
   z-index: 100;
 } 
+
+.login-error-in-message {
+  padding-left: 4em;
+}
 
 input {
   @include height-and-width(10%, 30%);

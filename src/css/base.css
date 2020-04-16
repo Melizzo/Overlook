@@ -1,0 +1,61 @@
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Barlow Condensed", sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.welcome-page {
+  background-position: center;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 10%;
+}
+
+header, h1 {
+  display: contents;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login-in-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: row;
+      -ms-flex-pack: row;
+          justify-content: row;
+  height: 40%;
+  width: 40%;
+  z-index: 100;
+}
+
+input {
+  height: 10%;
+  width: 30%;
+  display: inline inline-block;
+}
+
+.user-login-page {
+  display: none;
+}
+/*# sourceMappingURL=base.css.map */
