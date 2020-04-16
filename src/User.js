@@ -7,7 +7,7 @@ class User {
 
     findMyBookings(user, bookingsData) {
         console.log('bookingsData', bookingsData)
-        const UserBookings = []
+        const userBookings = []
         // const findData = bookingsData.filter(element => {
         //     console.log('element', element)
         //     element.userID
