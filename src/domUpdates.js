@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 
 const domUpdates = {
-    displayAllInfo(userData) {}, 
+    displayLogin(userData) {}, 
 }
 
 export default domUpdates;

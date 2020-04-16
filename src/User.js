@@ -5,10 +5,10 @@ class User {
         // this.myBookings = this.findMyBookings(user, bookingsData)
     }
 
-
     // findMyBookings() {
     // if(user.id === bookingsData.id)
     //  return that booking object into an array
+    // filter
     // filter through bookingsAPI & find all matching
     // bookings for this user.
     // }
