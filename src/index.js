@@ -109,15 +109,15 @@ function reassignData(apiRooms, apiBookings, newPerson) {
 }
 
 function reAssignRooms(apiRooms) {
-    apiRooms.forEach(apiRoom => {
-      room = new Room(apiRoom)
+    apiRooms.forEach(element => {
+      room = new Room(element)
       hotel.allRooms.push(room)
     })
   }
   
   function reAssignBookings(apiBookings) {
-    apiBookings.forEach(apiBooking => {
-      booking = new Booking(apiBooking)
+    apiBookings.forEach(element => {
+      booking = new Booking(element)
       bookings.allBookings.push(booking)
     })
   }
@@ -126,6 +126,8 @@ function reAssignRooms(apiRooms) {
     if (newPerson === 'manager') {
       manager = new Manager(newPerson)
     }
+    console.log('newPerson', newPerson)
     user = new User(newPerson, bookings)
+    console.log('user', user)
     // user.findMyBookings(newPerson, bookings);
   }
