@@ -2,16 +2,18 @@ class User {
     constructor(user, bookingsData) {
         this.id = user.id;
         this.name = user.name;
-        // this.myBookings = this.findMyBookings(user, bookingsData)
+        this.myBookings = this.findMyBookings(user, bookingsData)
     }
 
     findMyBookings(user, bookingsData) {
-        console.log('bookingsData', bookingsData)
         const userBookings = []
-        // const findData = bookingsData.filter(element => {
-        //     console.log('element', element)
-        //     element.userID
-        // })
+        bookingsData.allBookings.forEach(element => {
+            if(user.id === element.userID) {
+                userBookings.push(element)
+            }
+        })
+        console.log('userBookings', userBookings)
+        return userBookings
     }
 }
 
