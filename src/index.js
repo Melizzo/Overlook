@@ -126,8 +126,6 @@ function reAssignRooms(apiRooms) {
     if (newPerson === 'manager') {
       manager = new Manager(newPerson)
     }
-    console.log('newPerson', newPerson)
     user = new User(newPerson, bookings)
     console.log('user', user)
-    // user.findMyBookings(newPerson, bookings);
   }
