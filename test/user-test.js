@@ -2,15 +2,13 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import User from '../src/User';
-// import Bookings from '../src/Bookings';
 
 describe('User', function() {
   let user1;
-  let bookingsData;
+  let userBookings;
 
   beforeEach(() => {
-    bookingsData = {
-      'allBookings': [{
+    userBookings = [{
         'id': '5fwrgu4i7k55hl6tg',
         'userID': 34,
         'date': '2020/02/03',
@@ -22,19 +20,11 @@ describe('User', function() {
         'date': '2020/02/05',
         'roomNumber': 14,
         'roomService': [],
-      }, {
-        'id': '5fwrgu4i7k55hl6wp',
-        'userID': 50,
-        'date': '2020/02/05',
-        'roomNumber': 14,
-        'roomService': [],
       }],
-     
-    }
     user1 = new User({
       'id': 34,
       'name': 'Luisa Ardella Jakubowski'
-    }, bookingsData)
+    }, userBookings)
 
   })
   it.only('should be a function', function() {
