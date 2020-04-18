@@ -11,20 +11,37 @@
       <h1>Minimalist Hotel</h1>
     </header>
     <main>
-      <section class="welcome-page">
-        <section class="main-photo"></section>
-        <section class="login-in-area">
-          <div id="login-in-error" class="login-error-in-message"></div>
-          <input id="login-username-input" class="username-input" aria-label="enter-username" type="text" required>Login</input>
-          <input id="login-password-input" class="password-input" aria-label="enter-password" type="text" required>Password</input>
-          <input id="login-submit-button" aria-label="submit-username-and-password" type="submit" value="Submit"></input>
-        </section>
+      <section class="login-in-area">
+        <div id="login-in-error" class="login-error-in-message"></div>
+        <input id="login-username-input" class="username-input" aria-label="enter-username" type="text" required>Login</input>
+        <input id="login-password-input" class="password-input" aria-label="enter-password" type="text" required>Password</input>
+        <input id="login-submit-button" aria-label="submit-username-and-password" type="submit" value="Submit"></input>
       </section>
       <section class="user-login-page">
-        <section class="main-photo">
-          <!-- <img src="./images/user-login-page.jpg" alt="pillows"> -->
-        </section>
+        <div>
+          <h3>Reservations</h3>
+          <p>Interpolated bookingsData = id: 5fwrgu4i7k55hl6t5 date: 2020/01/24 roomNumber: 24</p>
+        </div>
+        <div>
+          <h3>Total Spent</h3>
+          <p>Interpolated roomsData & Bookings Data roomNumber & costPerNight</p>
+        </div>
+        <div>
+          <h3>Search for Room</h3>
+          <div id="search-error" class="search-message-error"></div>
+          <p>Filter date: only show rooms available, Filter roomType, show results for roomType and select. 
+            if none available, have error message pop up apologing and try again. 
+          </p>
+        </div>
+        <div>
+          <h3>Book a new Reservation</h3>
+          <p class='white'>User id: <span class="user-id-js"></span></p>
+          <input aria-label="select a date" type='date' class='date-input' name='date'></input>
+          <input aria-label="select a room number" type='number' class='room-number-input-reservation' required min='1' max='25'></input>
+
+        </div>
       </section>
+      <section class="manager-login-page"></section>
     </main>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="path/to/your/jquery.min.js"><\/script>')</script>

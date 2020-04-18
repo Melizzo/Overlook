@@ -68,6 +68,9 @@ function verifyPassword(username, password) {
     if (username.includes('customer') && password.includes('overlook2020')) {
       passwordLetters = verifyPasswordLength(username)
       return passwordLetters
+    } if (username.includes('manager') && password.includes('overlook2020')) {
+      passwordLetters = verifyPasswordLength(username)
+      return passwordLetters
     } else {
         $('#login-in-error').html('Incorrect username or password, please try again')
     }

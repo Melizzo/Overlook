@@ -10,10 +10,6 @@
   @include height-and-width(100%, 100% )
 }
 
-.welcome-page {
-  background-position: center;
-}
-
 header {
   @include flex-container(center);
   height: 10%;
@@ -36,21 +32,69 @@ main {
 }
 
 .login-in-area {
-  @include flex-container(row);
-  @include height-and-width(40%, 40%);
+  @include flex-container(center);
+  flex-direction: column;
+  @include height-and-width(30%, 10%);
+  margin: 2em;
+  background-color: rgba(36, 27, 27, 0.2);
   z-index: 100;
-} 
-
-.login-error-in-message {
-  padding-left: 4em;
+    input {
+      @include height-and-width(10%, 100%);
+      border-bottom: 1px solid gray;
+      border-radius: 1px;
+      font: rgb(82, 76, 76);
+      margin-top: 2em;
+    }
+  display: none;
 }
 
-input {
-  @include height-and-width(10%, 30%);
-  display: inline inline-block;
+input[type=submit]{
+  background-color: rgb(6, 12, 7);
+  border: none;
+  color: white;
+  font-size: large;
+  // padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+}
+
+.login-error-in-message {
+  @include height-and-width(20%, 100%);
 }
 
 // User login Page
 .user-login-page {
+  @include flex-container(center);
+  flex-direction: column;
+  @include height-and-width(80%, 60%);
+  margin: 2em;
+  background-color: rgba(50, 46, 46, 0.906);
+  overflow: scroll;
+    input {
+      @include height-and-width(10%, 100%);
+      border-bottom: 1px solid gray;
+      border-radius: 1px;
+      font: rgb(82, 76, 76);
+      margin-top: 2em;
+    }
+    h3 {
+      display: inline;
+      color: white;
+    }
+    p {
+      display: inline;
+      color: white;
+    }
+  // display: none;
+}
+
+.search-message-error {
+  @include height-and-width(20%, 100%);
+}
+
+
+// Manager login Page
+.manager-login-page {
+  overflow: scroll;
   display: none;
 }
