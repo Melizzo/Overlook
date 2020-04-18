@@ -19,7 +19,6 @@ import './images/hotel-main.jpg';
 
 let booking;
 let manager
-let bookings = new Bookings();
 let hotel = new Hotel();
 let user;
 let date;
@@ -35,19 +34,23 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
 })
 
 function windowHandler(data) {
-    let currentUser = captureLoginInformation(data);
-    domUpdates.displayLogin(currentUser);
-};
-
-function captureLoginInformation(usersData) {
-let username = $('#login-username-input').val();
-let password = $('#password-login-input').val();
-if (username === "manager" && password === "overlook2020") {
-  let newManager = 'manager';
-  getNeededData(newManager)
-} else {
-  let newUser = verifyUserLogin(usersData)
-  getNeededData(newUser)
+    captureLoginInformation(data);
+  };
+  
+  function captureLoginInformation(usersData) {
+    let username = $('#login-username-input').val();
+    let password = $('#login-password-input').val();
+    console.log('username', username)
+    console.log('password', password)
+    if (username === "manager" && password === "overlook2020") {
+      let newManager = 'manager';
+      console.log('newManger', newManager)
+      getNeededData(newManager)
+      domUpdates.togglePage($(".manager-login-page"), $(".login-area"));
+    } else {
+      let newUser = verifyUserLogin(usersData)
+      domUpdates.togglePage($(".user-login-page"), $(".login-area"));
+      getNeededData(newUser)
     }
 }
 
@@ -107,7 +110,7 @@ function reassignData(apiRooms, apiBookings, newPerson) {
   
     console.log('M', manager)
     console.log('U', user)
-    console.log('B', bookings)
+
     console.log('H', hotel)
 }
 
@@ -121,14 +124,20 @@ function reAssignRooms(apiRooms) {
   function reAssignBookings(apiBookings) {
     apiBookings.forEach(element => {
       booking = new Booking(element)
-      bookings.allBookings.push(booking)
+      hotel.allBookings.push(booking)
     })
   }
   
   function reAssignUser(newPerson) {
+    console.log('newPerson', newPerson)
     if (newPerson === 'manager') {
       manager = new Manager(newPerson)
+      console.log('manager', manager)
+      return
     }
-    user = new User(newPerson, bookings)
+    let userBookings = hotel.checkUserBookings(newPerson.id)
+    user = new User(newPerson, userBookings)
     console.log('user', user)
+    console.log('userBookings', userBookings)
+    return
   }

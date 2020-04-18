@@ -20,6 +20,10 @@ header, h1 {
 
 }
 
+.hidden {
+  display: none;
+}
+
 main {
   background-image: url('../images/hotel-main.jpg');
   background-repeat: no-repeat;
@@ -31,7 +35,7 @@ main {
   overflow: scroll;
 }
 
-.login-in-area {
+.login-area {
   @include flex-container(center);
   flex-direction: column;
   @include height-and-width(30%, 10%);
@@ -45,7 +49,6 @@ main {
       font: rgb(82, 76, 76);
       margin-top: 2em;
     }
-  display: none;
 }
 
 input[type=submit]{
@@ -78,14 +81,17 @@ input[type=submit]{
       margin-top: 2em;
     }
     h3 {
-      display: inline;
+      @include height-and-width(10%, 100%);
+      display: block;
       color: white;
+      padding-left: 1em;
     }
     p {
       display: inline;
       color: white;
+      padding-left: 1em;
     }
-  // display: none;
+    display: none;
 }
 
 .search-message-error {

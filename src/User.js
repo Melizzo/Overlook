@@ -1,13 +1,17 @@
+import Hotel from './Hotel.js'
+
 class User {
-    constructor(user, bookingsData) {
+    constructor(user, userBookings) {
         this.id = user.id;
         this.name = user.name;
-        this.myBookings = bookingsData.allBookings.filter(booking => booking.userID===user.id)
+        this.myBookings = userBookings
     }
 
     // createBooking(){
 
     // }
+
+    // 
 
 }
 
