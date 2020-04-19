@@ -1,6 +1,6 @@
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
-
+import moment from 'moment';
 import $ from 'jquery';
 import './css/base.scss';
 import './css/base.scss';
@@ -18,11 +18,14 @@ import './images/hotel-main.jpg';
 // import './images/user-login-page.jpg';
 
 let booking;
+let bookings = [];
 let manager
-let hotel = new Hotel();
+let hotel;
 let user;
+let users = [];
 let date;
 let room;
+let rooms = [];
 
 
 // FETCHING
@@ -50,7 +53,7 @@ function windowHandler(data) {
     } else {
       let newUser = verifyUserLogin(usersData)
       domUpdates.togglePage($(".user-login-page"), $(".login-area"));
-      getNeededData(newUser)
+      getNeededData(newUser, usersData)
     }
 }
 
@@ -62,7 +65,7 @@ function verifyUserLogin(usersData) {
       let correctUser = usersData.find(user => user.id === passwordId)
       return correctUser
     } else {
-        $('#login-in-error').html('Incorrect username or password, please try again')
+        $('#login-error').html('Incorrect username or password, please try again')
     }
 }
 
@@ -75,7 +78,7 @@ function verifyPassword(username, password) {
       passwordLetters = verifyPasswordLength(username)
       return passwordLetters
     } else {
-        $('#login-in-error').html('Incorrect username or password, please try again')
+        $('#login-error').html('Incorrect username or password, please try again')
     }
     return passwordLetters
 }
@@ -92,43 +95,59 @@ function verifyPasswordLength(username) {
       id1 = parseInt(id1)
       return id1
     } else {
-        $('#login-in-error').html('Incorrect username or password, please try again')
+    $('#login-error').html('Incorrect username or password, please try again')
     }
 }
 
-function getNeededData(newPerson) {
-    Promise.all([
-        fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms').then(response => response.json()),
-        fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings').then(response => response.json()),
-        ]).then(data => reassignData(data[0].rooms, data[1].bookings, newPerson))
+function getNeededData(newPerson, usersData) {
+  
+  Promise.all([
+    fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms').then(response => response.json()),
+    fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings').then(response => response.json()),
+  ]).then(data => reassignData(data[0].rooms, data[1].bookings, newPerson, usersData))
 }
 
-function reassignData(apiRooms, apiBookings, newPerson) {
-    reAssignRooms(apiRooms);
-    reAssignBookings(apiBookings)
-    reAssignUser(newPerson)
+function reassignData(apiRooms, apiBookings, newPerson, usersData) {
+  reAssignRooms(apiRooms);
+  console.log('apiRooms', apiRooms);
+  reAssignBookings(apiBookings);
+  reAssignUserArray(usersData);
+  reAssignHotel(rooms, bookings, users);
   
-    console.log('M', manager)
-    console.log('U', user)
+  index.reAssignUser(newPerson)
+  
+  console.log('M', manager)
+  console.log('U', usersData)
+  console.log('H', hotel)
+}
 
-    console.log('H', hotel)
+function reAssignHotel(rooms, bookings, users) {
+  hotel = new Hotel(rooms, bookings, users) 
 }
 
 function reAssignRooms(apiRooms) {
-    apiRooms.forEach(element => {
-      room = new Room(element)
-      hotel.allRooms.push(room)
+  apiRooms.forEach(element => {
+    room = new Room(element)
+    rooms.push(room)
+  })
+}
+
+function reAssignBookings(apiBookings) {
+  apiBookings.forEach(element => {
+    booking = new Booking(element)
+    bookings.push(booking)
+  })
+}
+
+function reAssignUserArray(usersData) {
+  console.log('usersData', usersData);
+    usersData.forEach(element => {
+      user = new User(element, bookings)
+      users.push(user)
     })
   }
-  
-  function reAssignBookings(apiBookings) {
-    apiBookings.forEach(element => {
-      booking = new Booking(element)
-      hotel.allBookings.push(booking)
-    })
-  }
-  
-  function reAssignUser(newPerson) {
+  let index = {
+   reAssignUser(newPerson) {
     console.log('newPerson', newPerson)
     if (newPerson === 'manager') {
       manager = new Manager(newPerson)
@@ -136,8 +155,13 @@ function reAssignRooms(apiRooms) {
       return
     }
     let userBookings = hotel.checkUserBookings(newPerson.id)
-    user = new User(newPerson, userBookings)
+    user = new User(newPerson, userBookings, rooms)
+    console.log('index rooms', rooms)
     console.log('user', user)
     console.log('userBookings', userBookings)
+    domUpdates.displayUserBookings(user)
+    
     return
+    }
   }
+  export default index;
