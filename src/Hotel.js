@@ -17,19 +17,19 @@ class Hotel {
         return moment(date);
         }
 
-    totalRoomsAvailableForTodaysDate(date = this.date) {
-        console.log('this.allBookings', this.allBookings)
-        let totalAvailableRooms = this.allBookings.reduce((acc, booking) => { 
-        if(booking.date === date) {
-            acc += 1
-        }
-        return acc
-        }, 0)
-        console.log('totalAvailableRooms', totalAvailableRooms)
-        return totalAvailableRooms
+    totalRoomsAvailableForAnyDate(date, allRooms, allBookings) {
+        let totalBookedRooms = allBookings.filter((booking) => { 
+          return booking.date === date
+        })
+        let bookedRoomNums = totalBookedRooms.map(room => room.roomNumber);
+        let availableRooms = allRooms.filter(room => !bookedRoomNums.includes(room.number))
+        return availableRooms
     }
 
-    // filterlistofavailableroomsbypropertyType
+    // filterlistofavailableroomsbypropertyType(date)
+    // available rooms = totalroomsAVailableanydate()
+    // filter through ro
+    // if serach=== bidet filter to true/false
 
     // FilterAvailableRoomsviadate
 
