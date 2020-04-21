@@ -27,7 +27,7 @@ describe('User', function() {
     }, userBookings)
 
   })
-  it.only('should be a function', function() {
+  it('should be a function', function() {
     expect(User).to.be.a('function');
   });
   it('should have an id', function() {
@@ -36,7 +36,7 @@ describe('User', function() {
   it('should have a name', function() {
     expect(user1.name).to.eq("Luisa Ardella Jakubowski")
   });
-  it.only('should have an array of rooms booked', function() {
+  it('should have an array of rooms booked', function() {
     expect(user1.myBookings).to.deep.equal([{
       'id': '5fwrgu4i7k55hl6tg',
       'userID': 34,
