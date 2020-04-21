@@ -12,15 +12,20 @@ const domUpdates = {
     },
     displayUserBookings(user) {
         user.myBookings.forEach(booking => {
-        $('.reservation-header').append(`<p>Reservation id: ${booking.id}, Date: ${booking.date}, Room Number: ${booking.roomNumber}</p>`);
+        $('.reservation-header').append(`<h4>Reservation ID: ${booking.id}, Date: ${booking.date}, Room Number: ${booking.roomNumber}</h4>`);
         })
     },
-    displayTotalCostOfUserBookings(user) {
-        console.log('dom user', user)
-        $('.').append(``);
-    }
-        //  return user.myBookings.forEach(booking => {
-        //     $('<p>booking</p>').insertAfter('display-reservations');
-        // })
+    displayTotalCostOfUserBookings(user, rooms) {
+        let cost = 0
+        user.myBookings.forEach(booking => {
+          rooms.find(specificRoom => {
+            if(booking.roomNumber === specificRoom.number){
+              cost += specificRoom.costPerNight  
+            }
+          })
+        })
+        return $('.total-cost').append(`'<p>Your total on hotel rooms is $${cost}</p>'`);
+    } 
+        
 }
 export default domUpdates;

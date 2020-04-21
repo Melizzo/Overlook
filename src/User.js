@@ -12,12 +12,6 @@ class User {
     // createBooking(){
 
     // }
-
-    displayReservationDetails() {
-        console.log(displayReservationDetails)
-        return`Reservation id: ${Booking.id}, Date: ${Booking.date}, Room Number: ${Booking.roomNumber}`
-    }
-
 }
 
 export default User;

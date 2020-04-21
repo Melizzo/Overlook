@@ -69,7 +69,7 @@ input[type=submit]{
 .user-login-page {
   @include flex-container(center);
   flex-direction: column;
-  @include height-and-width(80%, 60%);
+  @include height-and-width(80%, 50%);
   margin: 2em;
   background-color: rgba(50, 46, 46, 0.906);
   overflow: scroll;
@@ -82,7 +82,13 @@ input[type=submit]{
       margin-top: 2em;
     }
     h3 {
-      @include height-and-width(10%, 100%);
+      @include height-and-width(8%, 100%);
+      display: block;
+      color: white;
+      padding-left: 1em;
+    }
+    h4 {
+      @include height-and-width(4%, 100%);
       display: block;
       color: white;
       padding-left: 1em;
@@ -93,6 +99,9 @@ input[type=submit]{
       padding-left: 1em;
     }
     display: none;
+}
+.reservation-header {
+  padding-left: 1em;
 }
 
 .search-message-error {
