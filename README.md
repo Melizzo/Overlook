@@ -14,6 +14,8 @@ Set Up instructions
 
 working
 ![Website Overview](https://media.giphy.com/media/mA6VIw5OIuoBYO6M5C/giphy.gif)
- Pam - while this website doesn't meet any sort of passing grade for Mod2 - I am actively still coding, and will continue to be over the break.   
+
+
+This website doesn't meet any sort of passing grade for Mod2 - I am actively still coding, and will continue to be over the break.   
 
 * **[Melissa VanKempen](https://github.com/Melizzo)**
